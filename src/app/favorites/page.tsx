@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import BookCard from "../components/BookCard"; // Update path as needed
 import { BookItem } from "../utils/interfaces";
+import Loader from "../components/Loader";
 
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes";
 
@@ -41,7 +42,7 @@ export default function FavoritesPage() {
     fetchFavorites();
   }, []);
 
-  if (loading) return <p className="p-4">Loading favorites...</p>;
+  if (loading) return <Loader/>;
   if (favoriteBooks.length === 0)
     return <p className="p-4">No favorite books yet.</p>;
 

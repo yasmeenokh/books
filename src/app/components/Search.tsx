@@ -9,6 +9,7 @@ export default function ResponsiveSearch() {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {

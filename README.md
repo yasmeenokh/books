@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Cloning The Repo: 
+
+Run thee command ```git clone git@github.com:yasmeenokh/books.git```
+
 ## Getting Started
 
 First, run the development server:
@@ -23,4 +27,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 3- single book page
 4- favorite books page
 
-## Deployed Link:
+## Deployed Link: 

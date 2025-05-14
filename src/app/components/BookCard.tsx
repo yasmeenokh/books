@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BookItem } from "../utils/interfaces";
-import Link from 'next/link';
+import Link from "next/link";
 import Image from "next/image";
 import Icon from "./Icon";
 
@@ -87,9 +87,12 @@ export default function BookCard({ bookData }: BookCardProps) {
             </ul>
           )}
           <div className=" absolute bottom-2 right-6 capitalize text-blue-500 cursor-pointer font-semibold">
-          <Link href={`/books/${bookData.id}`} className="block">
-            learn more &#10095;
-          </Link>
+            <Link
+              href={`/books/${bookData.id}`}
+              className="block"
+              prefetch>
+              learn more &#10095;
+            </Link>
           </div>
         </div>
       </div>

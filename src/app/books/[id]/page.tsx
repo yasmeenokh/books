@@ -9,8 +9,8 @@ async function fetchBook(id: string) {
   return res.json();
 }
 
-type BookPageProps = {
-  params: { id: string };
+interface BookPageProps {
+  params: Promise<{ id: string }>;
 };
 
 export default async function BookDetailPage({ params }: BookPageProps) {
@@ -23,6 +23,9 @@ export default async function BookDetailPage({ params }: BookPageProps) {
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-10">
+      {
+        
+      }
       <h1 className="text-3xl font-bold mb-4">{info.title}</h1>
       <div className="flex flex-col gap-6 ">
         {info.imageLinks?.thumbnail ? (

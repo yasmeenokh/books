@@ -5,29 +5,30 @@ import Link from "next/link";
 import Search from "./Search";
 
 export default function Header() {
- const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
- useEffect(() => {
-   const stored = localStorage.getItem("color-theme");
-   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  useEffect(() => {
+    const stored = localStorage.getItem("color-theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const isDarkMode = stored === "dark" || (!stored && prefersDark);
+    document.documentElement.classList.toggle("dark", isDarkMode);
+    setIsDark(isDarkMode);
+  }, []);
 
-   const isDarkMode = stored === "dark" || (!stored && prefersDark);
-   document.documentElement.classList.toggle("dark", isDarkMode);
-   setIsDark(isDarkMode);
- }, []);
-
- const toggleTheme = () => {
-   const newTheme = isDark ? "light" : "dark";
-   localStorage.setItem("color-theme", newTheme);
-   document.documentElement.classList.toggle("dark", newTheme === "dark");
-   setIsDark(!isDark);
- };
+  const toggleTheme = () => {
+    const newTheme = isDark ? "light" : "dark";
+    localStorage.setItem("color-theme", newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    setIsDark(!isDark);
+  };
 
   return (
     <header className="sticky top-0 z-40 flex-none w-full mx-auto bg-white border-b border-gray-200 dark:border-gray-600 dark:bg-gray-800">
       <div className="p-4 flex items-center justify-between max-w-[1280px] mx-auto gap-2">
         <div className="flex items-center gap-6">
-          <Link href="/">
+          <Link href="/" prefetch>
             <Image
               src="/assets/book-icon.svg"
               width={50}
@@ -37,7 +38,10 @@ export default function Header() {
               className="cursor-pointer"
             />
           </Link>
-          <Link href="/favorites" className="cursor-pointer text-lg font-bold">
+          <Link
+            prefetch
+            href="/favorites"
+            className="cursor-pointer text-lg font-bold text-black dark:text-white">
             Favorite Books
           </Link>
         </div>
